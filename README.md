@@ -4,6 +4,25 @@ This is a new [**React Native**](https://reactnative.dev) project to demonstrate
 
 - Pull the code and run it to check if the `rn-swipe-button` is useful for your project.
 
+<div>
+  <h2 style="color:darkgreen;">Screenshots</h2>
+  <table border>
+	<tr">
+	  <td style="padding: 5px;"><span>iOS</span></td>
+	  <td style="padding: 5px;"><span>Android</span></td>
+  	<td style="padding: 5px;"><span>iOS GIF</span></td>
+    <td style="padding: 5px;"><span>Android RTL</span></td>
+	</tr>
+	<tr>
+     	  <td><img src="https://github.com/UdaySravanK/RNSwipeButtonDeni/blob/master/assets/rn-swipe-button-ios.png" width="200" style="margin-right: 30px;"/></td>
+     	  <td><img src="https://github.com/UdaySravanK/RNSwipeButtonDemo/blob/master/assets/rn-swipe-button.png" style="margin-right: 30px;" width="200"/></td>
+        <td><img src="https://github.com/UdaySravanK/RNSwipeButtonDemo/blob/master/assets/rn-swipe-button.gif" style="margin-right: 30px;" width="200"/></td>
+        <td><img src="https://github.com/UdaySravanK/RNSwipeButtonDemo/blob/master/assets/rn-swipe-button-rtl.png" style="margin-right: 30px;" width="200"/></td>
+	</tr>
+  </table>
+
+</div>
+
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
