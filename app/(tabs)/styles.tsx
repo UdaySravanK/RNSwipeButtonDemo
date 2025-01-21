@@ -17,7 +17,7 @@ const Styles = StyleSheet.create({
         left: 0,
         position: 'absolute',
     },
-  container: {padding: 5, paddingTop: 5, paddingBottom: 15},
+  container: {padding: 5, paddingTop: 50, paddingBottom: 15},
   swipeStatus: {
     color: '#FF0000',
     fontSize: 15,
@@ -55,6 +55,15 @@ const Styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     marginVertical: 64,
     paddingHorizontal: 15
+  },
+  button: {
+    backgroundColor: '#c0bab3',
+    borderColor: '#5b860a',
+    borderRadius: 5,
+    borderWidth: 1,
+    padding: 5,
+    marginTop: 5,
+    marginRight: 15,
   }
 });
 
