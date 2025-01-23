@@ -1,13 +1,10 @@
-import { StyleSheet, Image, Platform, ScrollView, Dimensions, View } from 'react-native';
+import { StyleSheet, Image, Platform, ScrollView, View } from 'react-native';
 
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 
-import SwipeButton from 'rn-swipe-button';
 
 /**
  * Follow below steps to test live changes of rn-swipe-button.
@@ -18,7 +15,7 @@ import SwipeButton from 'rn-swipe-button';
  */
 // import SwipeButton from './src/components/SwipeButton';
 import { useCallback, useState } from 'react';
-import { Cell2, RenderSubHeading } from '.';
+import HandleOrientationChange from './handle-orientation-change';
 
 export default function TabTwoScreen() {
   const [enableScroll, setEnableScroll] = useState(true)
@@ -115,49 +112,6 @@ export default function TabTwoScreen() {
       </Collapsible>
     </ScrollView>
   );
-}
-
-function HandleOrientationChange(
-  props: any
-) {
-  
-  const DEFAULT_REMAING_SWIPE_COMPLETE_ANIM_DURATION = 400
-  const [finishSwipeAnimDuration, setFinishSwipeAnimDuration] = useState(DEFAULT_REMAING_SWIPE_COMPLETE_ANIM_DURATION)
-
-  // Save this state immutable to orientation change
-  const [isFeedbackSubmitted, setIsFeedbackSubmitted] = useState(false)
-  
-  return (
-    <Cell2>
-      <RenderSubHeading heading='Handle orientation change' />
-      <SwipeButton
-        finishRemainingSwipeAnimationDuration={finishSwipeAnimDuration}
-        forceCompleteSwipe={ (forceComplete: any) => {
-          if (isFeedbackSubmitted) {
-            // Set to 0 to complete the swipe quickly on orientation change
-            setFinishSwipeAnimDuration(0)
-            forceComplete()
-          }
-        }}
-        title="Slide to submit"
-        onSwipeSuccess={(isForceComplete) => { 
-          props.onSwipeSuccess()
-            if (isForceComplete) {
-              // Reset it to default value
-              setFinishSwipeAnimDuration(DEFAULT_REMAING_SWIPE_COMPLETE_ANIM_DURATION)
-            } else {
-              // your existing onSuccess callback code
-              setIsFeedbackSubmitted(true)
-            }
-          }
-        }
-        onSwipeFail={props.onSwipeFail}
-        onSwipeStart={props.onSwipeStart}
-        width={300}
-        containerStyles={{width: '100%'}}
-      />
-    </Cell2>
-  )
 }
 
 const styles = StyleSheet.create({
