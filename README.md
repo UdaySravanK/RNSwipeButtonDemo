@@ -10,12 +10,12 @@ This is a new [**React Native**](https://reactnative.dev) project to demonstrate
 	<tr">
 	  <td style="padding: 5px;"><span>iOS</span></td>
 	  <td style="padding: 5px;"><span>Android</span></td>
-  	<td style="padding: 5px;"><span>iOS GIF</span></td>
-    <td style="padding: 5px;"><span>Android RTL</span></td>
+	  <td style="padding: 5px;"><span>iOS GIF</span></td>
+	  <td style="padding: 5px;"><span>Android RTL</span></td>
 	</tr>
 	<tr>
-     	  <td><img src="https://github.com/UdaySravanK/RNSwipeButtonDemo/blob/main/assets/images/rn-swipe-button-ios.png" width="200" style="margin-right: 30px;"/></td>
-     	  <td><img src="https://github.com/UdaySravanK/RNSwipeButtonDemo/blob/main/assets/images/rn-swipe-button.png" style="margin-right: 30px;" width="200"/></td>
+     	<td><img src="https://github.com/UdaySravanK/RNSwipeButtonDemo/blob/main/assets/images/rn-swipe-button-ios.png" width="200" style="margin-right: 30px;"/></td>
+     	<td><img src="https://github.com/UdaySravanK/RNSwipeButtonDemo/blob/main/assets/images/rn-swipe-button.png" style="margin-right: 30px;" width="200"/></td>
         <td><img src="https://github.com/UdaySravanK/RNSwipeButtonDemo/blob/main/assets/images/rn-swipe-button.gif" style="margin-right: 30px;" width="200"/></td>
         <td><img src="https://github.com/UdaySravanK/RNSwipeButtonDemo/blob/main/assets/images/rn-swipe-button-rtl.png" style="margin-right: 30px;" width="200"/></td>
 	</tr>

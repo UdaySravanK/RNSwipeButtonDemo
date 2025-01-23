@@ -29,17 +29,17 @@ export default function HomeScreen() {
   );
 }
 
-function RenderSubHeading(props: any) {
+export function RenderSubHeading(props: any) {
   return (<Text style={styles.subHeading}>{props.heading}</Text>)
 }
 
-const Cell = (props: any) => {
+export const Cell = (props: any) => {
   return(
     <View style={styles.cell}> {props.children} </View>
   )
 }
 
-const Cell2 = (props: any) => {
+export const Cell2 = (props: any) => {
   return(
     <View style={styles.cell2}> {props.children} </View>
   )

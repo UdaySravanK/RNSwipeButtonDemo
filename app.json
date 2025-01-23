@@ -7,7 +7,7 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "orientation": "portrait",
+    "orientation": "portrait|landscape",
     "ios": {
       "supportsTablet": true
     },
