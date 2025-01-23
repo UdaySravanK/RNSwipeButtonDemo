@@ -14,16 +14,6 @@ import SwipeButton from 'rn-swipe-button';
 // import SwipeButton from './src/components/SwipeButton';
 
 export default function HomeScreen() {
-  
-  const [enableScroll, setEnableScroll] = useState(true)
-
-  const enableTheScroll = useCallback(() => {
-    setEnableScroll(true)
-  }, [])
-
-  const disableTheScroll = useCallback(() => {
-    setEnableScroll(false)
-  }, [])
 
   return (
     <View style={styles.container}>
@@ -31,7 +21,7 @@ export default function HomeScreen() {
       <DisabledStateDemo />
       <SwipeStatusDemo />
       <ReverseSwipeStatusDemo />
-      <ForceResetAndForceCompleteSwipeDemo />
+      {/* <ForceResetAndForceCompleteSwipeDemo /> */}
       <SetImageToThumbIcon />
       <SetHeightAndWidth />
       <ResetAfterSuccessfulSwipe /> 

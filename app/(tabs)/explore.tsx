@@ -1,4 +1,4 @@
-import { StyleSheet, Image, Platform } from 'react-native';
+import { StyleSheet, Image, Platform, ScrollView } from 'react-native';
 
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
@@ -7,18 +7,31 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 
+import SwipeButton from 'rn-swipe-button';
+
+/**
+ * Follow below steps to test live changes of rn-swipe-button.
+ * 1. Copy 'src' folder from RNSwipeButton to 'RNSwipeButtonDemo/app/(tabs)/' folder
+ * 2. Comment above SwipeButton import and uncomment below one
+ *
+ * Note: NPM linking has some issue react-native/HAUL build tools.
+ */
+// import SwipeButton from './src/components/SwipeButton';
+import { useCallback, useState } from 'react';
+
 export default function TabTwoScreen() {
+  const [enableScroll, setEnableScroll] = useState(true)
+
+  const enableTheScroll = useCallback(() => {
+    setEnableScroll(true)
+  }, [])
+
+  const disableTheScroll = useCallback(() => {
+    setEnableScroll(false)
+  }, [])
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
-        />
-      }>
+    <ScrollView scrollEnabled={enableScroll} style={styles.container}>
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Explore</ThemedText>
       </ThemedView>
@@ -65,6 +78,7 @@ export default function TabTwoScreen() {
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>
       </Collapsible>
+      <SwipeButton onSwipeStart={disableTheScroll} onSwipeSuccess={enableTheScroll} onSwipeFail={enableTheScroll} />
       <Collapsible title="Light and dark mode components">
         <ThemedText>
           This template has light and dark mode support. The{' '}
@@ -91,11 +105,15 @@ export default function TabTwoScreen() {
           ),
         })}
       </Collapsible>
-    </ParallaxScrollView>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    marginTop: 72,
+    padding: 10,
+  },
   headerImage: {
     color: '#808080',
     bottom: -90,
