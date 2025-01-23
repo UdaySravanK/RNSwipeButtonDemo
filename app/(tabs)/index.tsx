@@ -11,7 +11,7 @@ import SwipeButton from 'rn-swipe-button';
  *
  * Note: NPM linking has some issue react-native/HAUL build tools.
  */
-// import SwipeButton from './src/components/SwipeButton';
+// import SwipeButton from './RNSwipeButton';
 
 export default function HomeScreen() {
 
@@ -21,7 +21,7 @@ export default function HomeScreen() {
       <DisabledStateDemo />
       <SwipeStatusDemo />
       <ReverseSwipeStatusDemo />
-      {/* <ForceResetAndForceCompleteSwipeDemo /> */}
+      <ForceResetAndForceCompleteSwipeDemo />
       <SetImageToThumbIcon />
       <SetHeightAndWidth />
       <ResetAfterSuccessfulSwipe /> 

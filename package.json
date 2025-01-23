@@ -39,7 +39,7 @@
     "react-native-screens": "~4.4.0",
     "react-native-web": "~0.19.13",
     "react-native-webview": "13.12.5",
-    "rn-swipe-button": "^2.0.0",
+    "rn-swipe-button": "^2.0.1",
     "expo-screen-orientation": "~8.0.4"
   },
   "devDependencies": {
