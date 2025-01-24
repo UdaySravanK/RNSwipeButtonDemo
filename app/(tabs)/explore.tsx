@@ -15,7 +15,7 @@ import { ThemedView } from '@/components/ThemedView';
  */
 // import SwipeButton from './src/components/SwipeButton';
 import { useCallback, useState } from 'react';
-import HandleOrientationChange from './handle-orientation-change';
+import { HandleOrientationChange } from './rn-swipe-button-demo';
 
 export default function TabTwoScreen() {
   const [enableScroll, setEnableScroll] = useState(true)

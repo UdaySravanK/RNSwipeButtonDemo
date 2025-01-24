@@ -8,6 +8,9 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "orientation": "portrait|landscape",
+    "extra": {
+      "supportsRTL": true
+    },
     "ios": {
       "supportsTablet": true
     },
