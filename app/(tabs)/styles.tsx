@@ -18,6 +18,11 @@ const Styles = StyleSheet.create({
         position: 'absolute',
     },
     container: {padding: 5, paddingTop: 50, paddingBottom: 15},
+    title: {
+        fontSize: 20,
+        textAlign: 'center',
+        padding: 5
+    }
 });
 
 export default Styles;
