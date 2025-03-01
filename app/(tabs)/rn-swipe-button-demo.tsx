@@ -1,19 +1,21 @@
 import { View, Text, Button, StyleSheet } from 'react-native';
 
-import { SetStateAction, useCallback, useState } from 'react';
-import SwipeButton from 'rn-swipe-button';
+import React, { SetStateAction, useCallback, useEffect, useState } from 'react';
 
+import { FontAwesome6 } from "@expo/vector-icons";
+import Animated, { useSharedValue, useAnimatedStyle, withTiming, withRepeat, withDelay, withSequence } from "react-native-reanimated";
+import SwipeButton from "rn-swipe-button";
 /**
  * Follow below steps to test live changes of rn-swipe-button.
- * 1. Copy 'src' folder from RNSwipeButton to 'RNSwipeButtonDemo/app/(tabs)/' folder
+ * 1. Copy 'src, types.d.tsx, index.js and package.json' from RNSwipeButton to 'RNSwipeButtonDemo/app/(tabs)/source' folder
  * 2. Comment above SwipeButton import and uncomment below one
  *
  * Note: NPM linking has some issue react-native/HAUL build tools.
  */
-// import SwipeButton from './src/components/SwipeButton';
+// import SwipeButton from './source/index';
 
 export function RenderSubHeading(props: any) {
-    return (<Text style={DemoStyles.subHeading}>{props.heading}</Text>)
+    return (<Text style={{...DemoStyles.subHeading, ...props.style}}>{props.heading}</Text>)
 }
   
 export function DisabledStateDemo() {
@@ -261,6 +263,77 @@ export function HandleOrientationChange(props: any) {
     }
 });
 
+const AnimatedComponent = ({ delay, icon, color, size, waitDuration, swiped }: { delay: number, icon: string, color: string, size: number, waitDuration: number, swiped: boolean }) => {
+    const opacity = useSharedValue(0.1);
+
+    useEffect(() => {
+        opacity.value = withDelay(
+            delay,
+            withRepeat(
+                withSequence(
+                    withTiming(1, { duration: 300 }),
+                    withTiming(0.1, { duration: 300 }),
+                    withTiming(0.1, { duration: waitDuration }),
+                ),
+                -1,
+                false
+            )
+        );
+    }, []);
+
+    const animatedStyle = useAnimatedStyle(() => ({
+        opacity: swiped ? 0.02 : opacity.value,
+    }));
+
+    return (
+        <Animated.View style={[animatedStyle]}>
+            <FontAwesome6 name={icon} iconStyle="solid" size={size} color={color} />
+        </Animated.View>
+    );
+};
+const TripleArrowAnimated = (props: { delay: number; icon: string; color: string; size: number; waitDuration: number; swiped: boolean; }) => {
+    return (
+        <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 5}}>
+            <AnimatedComponent delay={props.delay * 0} icon={props.icon} color={props.color} size={props.size} waitDuration={props.waitDuration} swiped={props.swiped} />
+            <AnimatedComponent delay={props.delay * 1} icon={props.icon} color={props.color} size={props.size} waitDuration={props.waitDuration} swiped={props.swiped} />
+            <AnimatedComponent delay={props.delay * 2} icon={props.icon} color={props.color} size={props.size} waitDuration={props.waitDuration} swiped={props.swiped} />
+        </View>
+    );
+};
+
+export function CustomTitle() {
+    const [swiped, setSwiped] = useState(false);
+    return (
+        <View style={{...DemoStyles.cell2}}>
+            <RenderSubHeading heading='Custom title' style={{paddingBottom: 5}} />
+            <SwipeButton
+                containerStyles={{
+                    borderRadius: 16,
+                    margin: 0
+                }}
+                railStyles={{
+                    borderRadius: 14
+                }}
+                thumbIconStyles={{
+                    borderRadius: 18,
+                    transform: [{scale: .9}]
+                }}
+                railBackgroundColor="rgba(55, 55, 55, 1)"
+                railBorderColor="rgba(255, 255, 255, 0)"
+                railFillBackgroundColor="rgba(252, 255, 87, 0.2)"
+                railFillBorderColor="rgba(255, 255, 255, 0)"
+                thumbIconBackgroundColor="rgba(188, 156, 87, 1)"
+                thumbIconBorderColor="rgba(252, 255, 87, 0)"
+                thumbIconComponent={() => (<FontAwesome6 name="gear" iconStyle="solid" size={28} />)}
+                titleComponent={() => (<TripleArrowAnimated icon="chevron-right" size={18} color="#FFFFFF" delay={100} waitDuration={2000} swiped={swiped} />)}
+                height={55}
+                onSwipeSuccess={() => setSwiped(true)}
+                onSwipeFail={() => setSwiped(false)}
+                onSwipeStart={() => setSwiped(true)}
+            />
+        </View>
+    );
+};
 
 export default {
     RenderSubHeading,
@@ -272,4 +345,5 @@ export default {
     SetHeightAndWidth,
     ResetAfterSuccessfulSwipe,
     HandleOrientationChange,
+    CustomTitle,
 }
